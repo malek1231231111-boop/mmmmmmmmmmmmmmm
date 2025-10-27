@@ -1,116 +1,695 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>متجر نعومة نعومتك</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>نعومة للبشرة النقية — متجر العناية بالبشرة</title>
+
+<!-- خطوط + مكتبات أساسية -->
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<!-- مكتبات CSS إضافية كثيرة -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.2/css/hover-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/css/lightbox.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/locomotive-scroll/4.1.4/locomotive-scroll.css"/>
+
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Cairo', sans-serif; background: #fdf6f0; color: #3a2612; line-height: 1.6; scroll-behavior: smooth; }
-nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #e2c099; box-shadow: 0 5px 20px rgba(58,38,18,0.1); position: sticky; top: 0; z-index: 1000; }
-nav .logo { font-size: 1.8rem; font-weight: 900; color: #7a5624; letter-spacing: 1px; }
-nav ul { list-style: none; display: flex; gap: 1.5rem; }
-nav ul li a { text-decoration: none; color: #3a2612; font-weight: 700; transition: color 0.3s; }
-nav ul li a:hover { color: #bfa06d; }
-.hero { position: relative; width: 100%; height: 70vh; display: flex; align-items: center; justify-content: center; background: url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat; }
-.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
-.hero-text { position: relative; color: #fff; text-align: center; z-index: 1; }
-.hero-text h1 { font-size: 3rem; font-weight: 900; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); margin-bottom: 1rem; }
-.hero-text p { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
-.shop-btn { display: inline-block; padding: 1rem 2.5rem; font-size: 1.2rem; font-weight: 900; color: #fff; text-decoration: none; border-radius: 20px; background: linear-gradient(135deg, #7a5624, #bfa06d); box-shadow: 0 6px 15px rgba(191,160,109,0.4); transition: all 0.3s ease; }
-.shop-btn:hover { background: linear-gradient(135deg, #bfa06d, #7a5624); transform: scale(1.1) translateY(-2px); box-shadow: 0 10px 25px rgba(191,160,109,0.6); }
-.categories { text-align:center; margin:2rem 0; }
-.category-btn { display: inline-block; margin: 0.5rem; padding: 0.8rem 1.8rem; font-size: 1rem; font-weight: 700; text-decoration: none; color: #fff; background: linear-gradient(135deg, #7a5624, #bfa06d); border-radius: 12px; transition: all 0.3s ease; }
-.category-btn:hover { background: linear-gradient(135deg, #bfa06d, #7a5624); transform: scale(1.05); color: #fff; }
-.section { padding: 4rem 2rem; text-align: center; background: #f9f3ec; }
-.section h2 { font-size: 2.5rem; font-weight: 900; color: #7a5624; margin-bottom: 2rem; }
-.products { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 2.5rem; }
-.product { background: rgba(255,248,236,0.85); backdrop-filter: blur(10px); border-radius: 24px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 12px 36px rgba(58,38,18,0.12); transition: transform 0.3s, box-shadow 0.3s; }
-.product:hover { transform: translateY(-12px) scale(1.05); box-shadow: 0 20px 50px rgba(58,38,18,0.2); }
-.product-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 3px solid rgba(219,178,133,0.6); box-shadow: 0 4px 15px rgba(219,178,133,0.5); transition: transform 0.3s; }
-.product:hover .product-img { transform: rotate(5deg) scale(1.1); }
-.product-title { font-size: 1.5rem; font-weight: 900; color: #7a5624; margin-bottom: 0.8rem; }
-.product-desc { font-size: 1rem; color: #4a3418; margin-bottom: 1.2rem; }
-.product-price { font-size: 1.2rem; font-weight: bold; color: #bfa06d; margin-bottom: 1.5rem; }
-.whatsapp-btn { display: inline-block; padding: 0.8rem 2rem; font-size: 1.1rem; font-weight: 700; color: #fff; text-decoration: none; border-radius: 16px; background: linear-gradient(135deg, #7a5624, #bfa06d); box-shadow: 0 6px 15px rgba(191,160,109,0.4); transition: all 0.3s ease; }
-.whatsapp-btn:hover { background: linear-gradient(135deg, #bfa06d, #7a5624); transform: scale(1.1) translateY(-2px); box-shadow: 0 10px 25px rgba(191,160,109,0.6); color: #fff; }
-footer { background: #f4e3d0; padding: 3rem 2rem; text-align: center; font-weight: 700; color: #7a5624; border-top: 2px solid #bfa06d; }
-footer a { color: #3a2612; text-decoration: underline; }
+:root{
+  --accent:#f39c12;--muted:#f6f6f7;--text:#222;
+  font-family:'Tajawal',system-ui;
+}
+*{box-sizing:border-box;}
+body{background:#fff;color:var(--text);overflow-x:hidden;direction:rtl;}
+
+/* ====== particles خلفية ====== */
+#particles-js{position:absolute;inset:0;z-index:0;pointer-events:none;}
+
+/* ====== الهيدر ====== */
+.header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #eee;background:white;position:sticky;top:0;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+.brand{font-weight:700;color:var(--accent);font-size:24px}
+.icon-btn{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;}
+.icon-btn:hover{background:var(--muted);}
+.search input{border:1px solid #eee;background:var(--muted);padding:8px 10px;border-radius:12px;transition:.2s;}
+.search input:focus{outline:none;border-color:var(--accent);}
+
+/* badge للسلة */
+.icon-btn.cart-badge{position:relative;}
+.icon-btn.cart-badge .count{
+  position:absolute;top:-6px;left:-6px;background:var(--accent);color:#fff;font-size:11px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;
+  box-shadow:0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* ====== القائمة الجانبية ====== */
+.sidebar{position:fixed;top:0;right:-260px;width:260px;height:100%;background:white;box-shadow:-4px 0 18px rgba(0,0,0,0.1);transition:right .3s ease;z-index:999;padding-top:60px;display:flex;flex-direction:column;gap:12px;}
+.sidebar.open{right:0;}
+.sidebar a{text-decoration:none;color:var(--text);font-weight:600;padding:12px 20px;border-radius:8px;}
+.sidebar a:hover{background:var(--muted);}
+.sidebar-close{position:absolute;top:14px;left:16px;font-size:30px;cursor:pointer;color:#666;z-index:2;}
+
+/* ====== سلة جانبية (من اليسار) ====== */
+#cartPanel{position:fixed;top:0;left:-340px;width:340px;height:100%;background:white;box-shadow:4px 0 18px rgba(0,0,0,0.12);transition:left .28s ease;z-index:1200;padding-top:64px;display:flex;flex-direction:column;}
+#cartPanel.open{left:0;}
+#cartPanel .cart-close{position:absolute;top:14px;right:12px;font-size:26px;cursor:pointer;color:#666;}
+#cartPanel .cart-body{flex:1;overflow-y:auto;padding:12px;}
+#cartPanel .cart-footer{padding:16px;border-top:1px solid #f0f0f0;}
+
+/* ====== سلايدر Swiper ====== */
+.swiper{width:100%;height:85vh;position:relative;z-index:1;}
+.swiper-slide{overflow:hidden;position:relative;}
+.swiper-slide img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  transform:scale(1.1);transition:transform 3s ease;
+}
+.swiper-slide-active img{transform:scale(1);}
+.swiper-slide:hover img{transform:scale(1.08);} /* تأثير الزوم عند المرور */
+
+.swiper-button-next,.swiper-button-prev{
+  color:white;--swiper-navigation-size:26px;background:rgba(0,0,0,0.35);
+  border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+}
+.swiper-pagination-bullet-active{background:var(--accent);}
+.shop-now-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:linear-gradient(90deg,#f39c12,#e67e22);color:#fff;padding:14px 36px;border-radius:50px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,0.15);z-index:20;transition:.3s;}
+.shop-now-btn:hover{transform:translate(-50%,-52%) scale(1.05);}
+
+/* ====== مجموعات المنتجات ====== */
+.product-groups{padding:60px 20px;background:#fff;position:relative;z-index:1;}
+.product-groups h2{text-align:center;color:var(--accent);margin-bottom:32px;font-size:26px;font-weight:700;}
+.gallery{display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:10px;}
+.gallery::-webkit-scrollbar{height:8px;}
+.gallery::-webkit-scrollbar-thumb{background:#ddd;border-radius:8px;}
+.product{flex:0 0 calc(25% - 12px);position:relative;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.08);transition:.3s;}
+.product:hover{transform:translateY(-6px);}
+.product img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.product:hover img{transform:scale(1.08);} /* زوم على الصورة */
+.product a{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#f39c12,#e67e22);color:#fff;padding:8px 16px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px;}
+.nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:none;font-size:24px;cursor:pointer;padding:8px 12px;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.15);z-index:8;}
+.nav-btn.left{left:8px;} .nav-btn.right{right:8px;}
+.nav-btn:hover{background:var(--accent);color:#fff;}
+
+/* ====== منتجات مميزة ====== */
+.featured{padding:60px 20px;background:var(--muted);z-index:1;}
+.featured h2{text-align:center;color:var(--accent);margin-bottom:40px;}
+
+/* تمييز المنتجات المميزة بإطار وظل وتأثير */
+.card.featured-product {
+  border: 2px solid var(--accent) !important;
+  box-shadow: 0 6px 22px rgba(243,156,18,0.12), 0 2px 10px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: visible;
+}
+.card.featured-product::before {
+  content: "مميز";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 2px 18px 2px 18px;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(243,156,18,0.18);
+  z-index: 2;
+  letter-spacing: 2px;
+}
+
+.card{border:none;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,0.05);overflow:hidden;transition:.3s;}
+.card:hover{transform:translateY(-5px);}
+.card img{width:100%;height:240px;object-fit:cover;transition:transform .6s ease;}
+.card:hover img{transform:scale(1.08);} /* زوم على الصورة */
+.card-body{text-align:center;}
+.card-title{font-weight:700;}
+.price{color:var(--accent);font-weight:700;font-size:18px;}
+.btn-buy{background:linear-gradient(90deg,#f39c12,#e67e22);color:white;border:none;border-radius:50px;padding:8px 20px;margin-top:8px;transition:.3s;}
+.btn-buy:hover{opacity:.9;}
+
+/* ====== قسم الرسم البياني ====== */
+.analytics{padding:40px 20px;background:#fff;}
+
+/* ====== قسم Babylon 3D ====== */
+.babylon-section{padding:40px 20px;background:linear-gradient(180deg,#fff,#f8f8f9);text-align:center;}
+#renderCanvas{width:100%;height:360px;border-radius:12px;box-shadow:0 6px 22px rgba(0,0,0,0.06);}
+
+/* ====== الفوتر ====== */
+.footer{background:#f6f6f7;padding:50px 20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;position:relative;z-index:1;}
+.footer .column{flex:1 1 220px;}
+.footer h4{margin-bottom:12px;color:var(--accent);}
+.footer a{display:block;text-decoration:none;color:var(--text);margin-bottom:6px;}
+.footer input[type="email"]{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:12px;}
+.footer button{padding:10px 16px;background:var(--accent);color:white;border:none;border-radius:8px;cursor:pointer;}
+.footer button:hover{background:#e67e22;}
+
+/* نقل زر القلم إلى اليسار كما طلبت */
+.classify-btn{position:absolute;top:14px;left:120px;right:auto;z-index:120}
+
+/* responsive */
+@media(max-width:992px){.product{flex:0 0 calc(33.3% - 12px)}}
+@media(max-width:768px){
+  .product{flex:0 0 calc(50% - 12px)}.swiper{height:65vh}
+  .classify-btn{left:8px}
+  #cartPanel{width:100%;left:-100%}
+  #cartPanel.open{left:0}
+}
 </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav>
-  <div class="logo">نعومة نعومتك</div>
-  <ul>
-    <li><a href="index.html">المنتجات</a></li>
-    <li><a href="reviews.html">تقييمات العملاء</a></li>
-    <li><a href="contact.html">تواصل معنا</a></li>
-  </ul>
-</nav>
+<!-- particles background -->
+<div id="particles-js" aria-hidden="true"></div>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-text">
-    <h1>جمالك يبدأ من هنا</h1>
-    <p>منتجات العناية بالبشرة الأصلية والفاخرة</p>
-    <a class="shop-btn" href="index.html">تسوقي الآن</a>
+<header class="header">
+  <div class="d-flex align-items-center gap-3">
+    <button id="menuBtn" class="icon-btn" data-tippy-content="قائمة"><i class="fa fa-bars"></i></button>
+    <div class="brand">نعومة نعومتك</div>
   </div>
-</section>
+  <div class="d-flex align-items-center gap-2">
+    <div class="search"><input id="searchInput" placeholder="ابحث عن منتج أو مكوّن"></div>
 
-<!-- Categories -->
-<div class="categories">
-  <a class="category-btn" href="creams.html">كريمات</a>
-  <a class="category-btn" href="serums.html">سيرومات</a>
-  <a class="category-btn" href="cleansers.html">منظفات</a>
-  <a class="category-btn" href="sunscreen.html">واقي شمس</a>
-  <a class="category-btn" href="about.html">عن نُعُومة</a>
-  <a class="category-btn" href="consult.html">استشارة بشرتك</a>
+    <!-- زر السلة المضاف -->
+    <button class="icon-btn cart-badge" id="cartBtn" data-tippy-content="سلة المشتريات">
+      <i class="fa fa-shopping-cart"></i>
+      <span class="count" id="cartCount" style="display:none">0</span>
+    </button>
+
+    <button class="icon-btn" id="userBtn" data-tippy-content="حسابي"><i class="fa fa-user"></i></button>
+
+    <!-- زر القلم (منقول لليسار عبر الـ CSS أعلاه) -->
+    <button class="icon-btn classify-btn" id="classifyBtn" title="صنّف صورة السلايدر"><i class="fa fa-magic"></i></button>
+  </div>
+</header>
+
+<!-- القائمة الجانبية -->
+<div id="sidebar" class="sidebar">
+  <span class="sidebar-close" id="sidebarClose">&times;</span>
+  <a href="#">الرئيسية</a>
+  <a href="#">المتجر</a>
+  <a href="#">اتصل بنا</a>
+  <a href="#">عن نعومة</a>
+  <a href="#">سياسة الخصوصية</a>
+  <a href="#">الاسترجاع</a>
+  <a href="#">الدفع</a>
+  <a href="#">كل المنتجات</a>
 </div>
 
-<!-- Products Section -->
-<section class="section">
-  <h2>جميع المنتجات</h2>
-  <div class="products">
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" class="product-img" alt="كريم تفتيح الوجه">
-      <div class="product-title">كريم تفتيح الوجه</div>
-      <div class="product-desc">كريم فعال لتفتيح وتوحيد لون البشرة بسرعة وأمان.</div>
-      <div class="product-price">110 دينار ليبي</div>
-      <a class="whatsapp-btn" href="https://wa.me/218912345678?text=أريد%20طلب%20كريم%20تفتيح%20الوجه" target="_blank">اطلب عبر واتساب</a>
+<!-- ====== سلة المشتريات (لوحة جانبية من اليسار) ====== -->
+<div id="cartPanel" aria-hidden="true">
+  <span class="cart-close" id="cartClose">&times;</span>
+  <h5 style="padding:16px; border-bottom:1px solid #eee; color:var(--accent); margin:0;">🛒 سلة المشتريات</h5>
+  <div class="cart-body" id="cartItems">
+    <!-- عناصر السلة تُملأ ديناميكياً بواسطة الجافاسكربت -->
+  </div>
+  <div class="cart-footer">
+    <p id="cartTotal" style="font-weight:700;margin-bottom:12px;">المجموع: 0 ر.س</p>
+    <div style="display:flex;gap:8px;">
+      <button id="checkoutBtn" class="btn w-100" style="background:var(--accent); color:white;">إتمام الطلب عبر واتساب</button>
     </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" class="product-img" alt="سيروم فيتامين سي">
-      <div class="product-title">سيروم فيتامين سي</div>
-      <div class="product-desc">تفتيح ونضارة فورية للبشرة. آمن لجميع أنواع البشرة.</div>
-      <div class="product-price">120 دينار ليبي</div>
-      <a class="whatsapp-btn" href="https://wa.me/218912345678?text=أريد%20طلب%20سيروم%20فيتامين%20سي" target="_blank">اطلب عبر واتساب</a>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" class="product-img" alt="منظف البشرة">
-      <div class="product-title">منظف البشرة الفاخر</div>
-      <div class="product-desc">تنظيف عميق مع حماية البشرة من الجفاف.</div>
-      <div class="product-price">85 دينار ليبي</div>
-      <a class="whatsapp-btn" href="https://wa.me/218912345678?text=أريد%20طلب%20منظف%20البشرة" target="_blank">اطلب عبر واتساب</a>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1591828151800-6a96e0aa445d?auto=format&fit=crop&w=400&q=80" class="product-img" alt="واقي الشمس">
-      <div class="product-title">واقي الشمس الفاخر</div>
-      <div class="product-desc">حماية فائقة من أشعة الشمس مع ترطيب خفيف للبشرة.</div>
-      <div class="product-price">70 دينار ليبي</div>
-      <a class="whatsapp-btn" href="https://wa.me/218912345678?text=أريد%20طلب%20واقي%20الشمس" target="_blank">اطلب عبر واتساب</a>
+    <small style="display:block;margin-top:8px;color:#666">سيتم فتح واتساب لإرسال محتوى السلة. عدّل رقم الواتساب في الكود إن رغبت.</small>
+  </div>
+</div>
+
+<main>
+
+<!-- ====== سلايدر Swiper ====== -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="https://i.postimg.cc/nLzXRPb7/Chat-GPT-Image-26-aktwbr-2025-10-41-47-s.png" alt=""></div>
+    <div class="swiper-slide"><img src="https://i.postimg.cc/Jn9VVGyt/c13701b0-6dea-4374-b112-cc155503e425.png" alt=""></div>
+    <div class="swiper-slide"><img src="https://i.postimg.cc/6pR8DvyL/709aeed9-d750-4364-8f9c-900aff895bae.png" alt=""></div>
+    <div class="swiper-slide"><img src="https://i.postimg.cc/05McH9ps/Chat-GPT-Image-26-aktwbr-2025-11-21-52-s.png" alt=""></div>
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+  <a href="#" class="shop-now-btn" id="shopNowBtn" data-tippy-content="اذهب إلى المتجر">تسوق الآن</a>
+</div>
+
+<!-- ====== مجموعات المنتجات ====== -->
+<section class="product-groups" data-aos="fade-up">
+  <h2>مجموعات المنتجات</h2>
+  <button class="nav-btn left" id="leftBtn"><i class="fa fa-chevron-left"></i></button>
+  <div class="gallery" id="gallery">
+    <div class="product"><img src="https://i.postimg.cc/Y0XNVmDr/Chat-GPT-Image-26-aktwbr-2025-10-36-10-s.png"><a href="#">كريمات</a></div>
+    <div class="product"><img src="https://i.postimg.cc/wBWM8ccm/9044a1dc-0677-4158-a31e-594ad66a90fe.png"><a href="#">سيرومات</a></div>
+    <div class="product"><img src="https://i.postimg.cc/Px44k7VK/fbc7eac9-e6ee-4e8e-8b37-853ce651f83c.png"><a href="#">منظفات</a></div>
+    <div class="product"><img src="https://i.postimg.cc/wvvVgVCn/07946309-3ead-4f74-85cd-6aa93e2cdd05.png"><a href="#">واقي شمس</a></div>
+    <div class="product"><img src="https://i.postimg.cc/g2vL7Prk/sample1.png"><a href="#">مقشرات</a></div>
+    <div class="product"><img src="https://i.postimg.cc/2yKfyPXP/sample2.png"><a href="#">تونرات</a></div>
+  </div>
+  <button class="nav-btn right" id="rightBtn"><i class="fa fa-chevron-right"></i></button>
+</section>
+
+<!-- ====== منتجات مميزة ====== -->
+
+
+<!-- ====== منتجات مميزة Splide ====== -->
+<section class="featured" data-aos="fade-up">
+  <h2>منتجات مميزة</h2>
+  <div class="splide" id="splideNewProducts">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <!-- سيتم تعبئة المنتجات بالجافاسكربت -->
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
-<footer>
-جميع الحقوق محفوظة © متجر نعومة نعومتك 2025 <br>
-تواصل معنا عبر <a href="https://wa.me/218912345678">واتساب</a>
+<!-- ====== قسم التحليلات Chart.js ====== -->
+<section class="analytics" data-aos="fade-up">
+  <h2 style="text-align:center;color:var(--accent);margin-bottom:24px;">إحصاءات المبيعات</h2>
+  <div class="container">
+    <canvas id="salesChart" style="max-width:900px;margin:0 auto;display:block;"></canvas>
+  </div>
+</section>
+
+<!-- ====== قسم Babylon.js 3D ====== -->
+<section class="babylon-section" data-aos="fade-up">
+  <h2 style="color:var(--accent);margin-bottom:16px;">عرض 3D تفاعلي</h2>
+  <p style="margin-bottom:12px;">تجربة بسيطة لمجسم ثلاثي الأبعاد يمكن تدويره وسحبه بالفأرة.</p>
+  <canvas id="renderCanvas"></canvas>
+</section>
+
+<footer class="footer">
+  <div class="column">
+    <h4>روابط سريعة</h4>
+    <a href="#">الرئيسية</a><a href="#">المتجر</a><a href="#">اتصل بنا</a><a href="#">عن نعومة</a>
+  </div>
+  <div class="column">
+    <h4>سياساتنا</h4>
+    <a href="#">سياسة الخصوصية</a><a href="#">الاسترجاع</a><a href="#">الدفع</a>
+  </div>
+  <div class="column">
+    <h4>اشترك بالنشرة</h4>
+    <input type="email" placeholder="أدخل بريدك الإلكتروني" id="newsletterInput"><button id="subscribeBtn">اشترك</button>
+  </div>
 </footer>
 
+</main>
+
+<!-- مكتبات JavaScript عديدة -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- إضافات مفيدة -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iziToast/1.4.0/js/iziToast.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy.umd.min.js"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<!-- Babylon.js -->
+<script src="https://cdn.babylonjs.com/babylon.js"></script>
+
+<!-- TensorFlow.js + MobileNet model -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.9.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
+
+<!-- Splide (غير مستخدم بكثافة لكن مُضاف) -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+<script>
+/* ====== Splide: منتجات جديدة ====== */
+const splideData = [
+  {img:"https://i.postimg.cc/SRkcnQqS/sample3.png",title:"كريم ترطيب عميق",price:"35 ر.س"},
+  {img:"https://i.postimg.cc/fRFXm6hh/sample4.png",title:"سيروم فيتامين C",price:"42 ر.س"},
+  {img:"https://i.postimg.cc/Gpn3kC5W/sample5.png",title:"تونر الورد",price:"28 ر.س"},
+  {img:"https://i.postimg.cc/L5fCKvjZ/mobile-2.png",title:"واقي شمس صبار",price:"39 ر.س"},
+  {img:"https://i.postimg.cc/g2vL7Prk/sample1.png",title:"مقشر طبيعي",price:"29 ر.س"},
+  // منتجات جديدة أضفتها لك:
+  {img:"https://i.postimg.cc/7hGdHd6B/sample6.png",title:"غسول لطيف للبشرة",price:"33 ر.س"},
+  {img:"https://i.postimg.cc/Rh4Jx0D5/sample7.png",title:"سيروم حمض الهيالورونيك",price:"48 ر.س"},
+  {img:"https://i.postimg.cc/7YpJ5zq9/sample8.png",title:"كريم ليلي مغذي",price:"54 ر.س"},
+  {img:"https://i.postimg.cc/76Gv4zY6/sample9.png",title:"زيت الوجه الطبيعي",price:"40 ر.س"},
+  {img:"https://i.postimg.cc/fLbJ2T0C/sample10.png",title:"منظف رغوي للبشرة",price:"27 ر.س"}
+];
+
+document.addEventListener('DOMContentLoaded',function(){
+  // تعبئة منتجات Splide
+  const splideList = document.querySelector('#splideNewProducts .splide__list');
+  if(splideList){
+    splideData.forEach(prod=>{
+      const li = document.createElement('li');
+      li.className = "splide__slide";
+      li.innerHTML = `
+        <div class="card" style="min-width:210px;max-width:220px;margin:0 auto;">
+          <img src="${prod.img}" alt="${prod.title}" style="height:180px;object-fit:cover;">
+          <div class="card-body" style="padding:12px;">
+            <h5 class="card-title">${prod.title}</h5>
+            <p class="price">${prod.price}</p>
+            <button class="btn-buy" data-tippy-content="أضف إلى السلة">أضف إلى السلة</button>
+          </div>
+        </div>
+      `;
+      splideList.appendChild(li);
+    });
+    new Splide('#splideNewProducts',{
+      type:'loop',
+      perPage:4,
+      gap:'1rem',
+      autoplay:true,
+      direction:'rtl',
+      pagination:false,
+      breakpoints:{
+        1200:{perPage:3},
+        768:{perPage:2},
+        520:{perPage:1}
+      }
+    }).mount();
+  }
+});
+
+/* ====== تهيئة مكتبات ====== */
+AOS.init({duration:800,once:true});
+gsap.registerPlugin(ScrollTrigger);
+
+/* ====== القائمة الجانبية ====== */
+const menuBtn=document.getElementById('menuBtn');
+const sidebar=document.getElementById('sidebar');
+const sidebarClose=document.getElementById('sidebarClose');
+menuBtn.onclick=()=>sidebar.classList.add('open');
+sidebarClose.onclick=()=>sidebar.classList.remove('open');
+document.addEventListener('click',e=>{if(!sidebar.contains(e.target)&&!menuBtn.contains(e.target))sidebar.classList.remove('open');});
+
+/* ====== Swiper ====== */
+const swiper = new Swiper(".mySwiper",{
+  loop:true,
+  autoplay:{delay:4000,disableOnInteraction:false},
+  pagination:{el:".swiper-pagination",clickable:true},
+  navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},
+  effect:"fade",
+  fadeEffect:{crossFade:true},
+  speed:1200
+});
+
+/* ====== تمرير المعرض بالأزرار ====== */
+const gallery=document.getElementById('gallery');
+document.getElementById('rightBtn').onclick=()=>gallery.scrollBy({left:300,behavior:'smooth'});
+document.getElementById('leftBtn').onclick=()=>gallery.scrollBy({left:-300,behavior:'smooth'});
+
+/* ====== GSAP أنيميشن للبطاقات عند الظهور ====== */
+gsap.from(".card",{
+  y:40,opacity:0,duration:0.8,stagger:0.12,
+  scrollTrigger:{trigger:".featured",start:"top 80%"}
+});
+
+/* ====== تلميحات tippy و iziToast لأزرار الشراء */ 
+tippy('#shopNowBtn',{placement:'bottom',animation:'scale'});
+tippy('#menuBtn',{placement:'bottom'});
+tippy('#userBtn',{placement:'bottom'});
+tippy('.btn-buy',{placement:'top',animation:'shift-away'});
+
+/* اشعار عند الاشتراك */
+document.getElementById('subscribeBtn').addEventListener('click',()=>{
+  const email = document.getElementById('newsletterInput').value || '---';
+  iziToast.success({title:'تم الاشتراك',message:`${email} تم إضافته`});
+});
+
+/* ====== Particles.js إعداد وخلفية متحركة ====== */
+particlesJS('particles-js', {
+  "particles": {
+    "number": {"value": 45, "density": {"enable": true, "value_area": 800}},
+    "color": {"value": ["#f39c12","#e67e22","#ffffff"]},
+    "shape": {"type": "circle"},
+    "opacity": {"value": 0.75},
+    "size": {"value": 3},
+    "line_linked": {"enable": false},
+    "move": {"enable": true, "speed": 1.5, "random": true, "straight": false, "out_mode": "out"}
+  },
+  "interactivity": {
+    "events": {
+      "onhover": {"enable": false},
+      "onclick": {"enable": false}
+    }
+  },
+  "retina_detect": true
+});
+
+/* ====== Chart.js رسم بياني بسيط ====== */
+const ctx = document.getElementById('salesChart').getContext('2d');
+const salesChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['يناير','فبراير','مارس','أبريل','ماي','يونيو','يوليو','أغسطس'],
+    datasets: [{
+      label: 'مبيعات (وحدة)',
+      data: [120, 170, 150, 190, 220, 260, 240, 280],
+      tension: 0.4,
+      fill: true,
+      backgroundColor: 'rgba(243,156,18,0.12)',
+      borderColor: 'rgba(243,156,18,1)',
+      pointRadius: 4
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {legend: {display:true, position:'top'}},
+    scales: {
+      y: {beginAtZero:true}
+    }
+  }
+});
+
+/* ====== Babylon.js مشهد 3D بسيط ====== */
+(function initBabylon(){
+  const canvas = document.getElementById('renderCanvas');
+  const engine = new BABYLON.Engine(canvas, true, {preserveDrawingBuffer:true, stencil:true});
+  const scene = new BABYLON.Scene(engine);
+  scene.clearColor = new BABYLON.Color4(1,1,1,0);
+  const camera = new BABYLON.ArcRotateCamera("cam", -Math.PI/2.2, Math.PI/3.5, 6, BABYLON.Vector3.Zero(), scene);
+  camera.attachControl(canvas,true);
+  const light = new BABYLON.HemisphericLight("hemi", new BABYLON.Vector3(0,1,0), scene);
+  const sphere = BABYLON.MeshBuilder.CreateSphere("sph",{diameter:2.0,segments:32},scene);
+  const mat = new BABYLON.PBRMaterial("mat",scene);
+  mat.albedoColor = new BABYLON.Color3(0.96,0.58,0.09); // tone like accent
+  mat.metallic = 0.1;
+  mat.roughness = 0.35;
+  sphere.material = mat;
+  // دوران بسيط
+  scene.onBeforeRenderObservable.add(()=>{ sphere.rotation.y += 0.006; });
+  engine.runRenderLoop(()=>scene.render());
+  window.addEventListener("resize",()=>engine.resize());
+})();
+
+/* ====== TensorFlow.js + MobileNet: تصنيف صورة السلايدر الحالية ====== */
+let mobilenetModel = null;
+async function loadMobilenetOnce(){
+  if(mobilenetModel) return mobilenetModel;
+  iziToast.info({title:'تحميل النموذج',message:'جاري تحميل MobileNet لتصنيف الصور...'});
+  mobilenetModel = await mobilenet.load({version:2,alpha:1.0});
+  iziToast.success({title:'جاهز',message:'نموذج MobileNet تمّ تحميله'});
+  return mobilenetModel;
+}
+
+document.getElementById('classifyBtn').addEventListener('click', async ()=>{
+  try{
+    const activeSlide = document.querySelector('.swiper-slide.swiper-slide-active img') || document.querySelector('.swiper-slide img');
+    if(!activeSlide) return iziToast.error({title:'خطأ',message:'لم يتم العثور على صورة للتصنيف'});
+    await loadMobilenetOnce();
+    const results = await mobilenetModel.classify(activeSlide,3);
+    if(results && results.length){
+      const top = results[0];
+      iziToast.show({
+        title: `نتيجة: ${top.className.split(',')[0]}`,
+        message: `الثقة: ${(top.probability*100).toFixed(1)}%`,
+        timeout: 6000,
+        position: 'topRight'
+      });
+    } else {
+      iziToast.warning({title:'غير معروف',message:'لم يتم العثور على نتيجة واضحة'});
+    }
+  }catch(err){
+    console.error(err);
+    iziToast.error({title:'خطأ',message:err.message||err.toString()});
+  }
+});
+
+/* ====== نظام السلة المتكامل (حفظ في localStorage، إضافة/حذف/مجموع، وإرسال عبر واتساب) ====== */
+const cartBtn = document.getElementById('cartBtn');
+const cartPanel = document.getElementById('cartPanel');
+const cartClose = document.getElementById('cartClose');
+const cartItemsEl = document.getElementById('cartItems');
+const cartTotalEl = document.getElementById('cartTotal');
+const cartCountEl = document.getElementById('cartCount');
+const checkoutBtn = document.getElementById('checkoutBtn');
+
+let cart = [];
+try {
+  cart = JSON.parse(localStorage.getItem('shop_cart_v1')) || [];
+  if (!Array.isArray(cart)) cart = [];
+} catch(e) {
+  cart = [];
+}
+
+function renderCart(){
+  cartItemsEl.innerHTML = '';
+  let total = 0;
+  if(cart.length === 0){
+    cartItemsEl.innerHTML = '<p style="text-align:center;color:#777;margin-top:20px;">السلة فارغة</p>';
+  } else {
+    cart.forEach((it, idx) => {
+      total += it.price;
+      const itemDiv = document.createElement('div');
+      itemDiv.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f4f4f4;';
+      itemDiv.innerHTML = `
+        <div style="flex:1;">
+          <div style="font-weight:700;">${escapeHtml(it.name)}</div>
+          <div style="font-size:13px;color:#666;">${it.price.toFixed(2)} ر.س</div>
+        </div>
+        <div style="flex-shrink:0;margin-left:8px;">
+          <button class="btn btn-sm btn-outline-danger remove-item" data-idx="${idx}">&times;</button>
+        </div>
+      `;
+      cartItemsEl.appendChild(itemDiv);
+    });
+  }
+  cartTotalEl.innerText = `المجموع: ${total.toFixed(2)} ر.س`;
+  localStorage.setItem('shop_cart_v1', JSON.stringify(cart));
+  // تحديث العدد
+  if(cart.length > 0){
+    cartCountEl.style.display = 'flex';
+    cartCountEl.innerText = cart.length;
+  } else {
+    cartCountEl.style.display = 'none';
+    cartCountEl.innerText = '0';
+  }
+  // bind remove
+  document.querySelectorAll('.remove-item').forEach(btn=>{
+    btn.onclick = (e)=>{
+      const i = parseInt(e.currentTarget.dataset.idx,10);
+      if(!Number.isNaN(i)){
+        cart.splice(i,1);
+        renderCart();
+        iziToast.info({title:'تم الحذف',message:'تمت إزالة المنتج من السلة'});
+      }
+    };
+  });
+}
+
+function escapeHtml(text){
+  return (text + '').replace(/[&<>"'`=\/]/g, function(s){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;",'/':'&#x2F;','`':'&#x60;','=':'&#x3D;'}[s]; });
+}
+
+renderCart();
+
+// فتح/إغلاق لوحة السلة
+cartBtn.onclick = ()=> { cartPanel.classList.add('open'); cartPanel.setAttribute('aria-hidden','false'); };
+cartClose.onclick = ()=> { cartPanel.classList.remove('open'); cartPanel.setAttribute('aria-hidden','true'); };
+document.addEventListener('click', (e)=>{
+  // إغلاق السلة إذا ضغط خارجها (مع استثناء للأزرار)
+  if(!cartPanel.contains(e.target) && !cartBtn.contains(e.target) && cartPanel.classList.contains('open')){
+    cartPanel.classList.remove('open');
+    cartPanel.setAttribute('aria-hidden','true');
+  }
+});
+
+/* ربط أزرار "أضف إلى السلة" بنفس العناصر في الصفحة */
+function bindBuyButtons(){
+  document.querySelectorAll('.btn-buy').forEach(btn=>{
+    if (!btn.dataset.bound) {
+      btn.addEventListener('click', (e)=>{
+        // نحاول قراءة اسم وسعر من أقرب بطاقة
+        const card = e.target.closest('.card');
+        const nameEl = card ? card.querySelector('.card-title') : null;
+        const priceEl = card ? card.querySelector('.price') : null;
+        const name = nameEl ? nameEl.innerText.trim() : 'منتج';
+        let price = 0;
+        if(priceEl){
+          // جلب الأرقام فقط
+          const raw = priceEl.innerText.replace(/[^\d.,]/g,'').replace(',','.');
+          price = parseFloat(raw) || 0;
+        }
+        cart.push({name, price});
+        renderCart();
+        iziToast.success({title:'أضيفت',message:`${name} تمت إضافته إلى السلة`});
+        // صغير أنيميشن للبطاقة
+        try{ gsap.fromTo(card,{scale:1},{scale:0.98,duration:0.08,yoyo:true,repeat:1}); }catch(err){}
+      });
+      btn.dataset.bound = "true";
+    }
+  });
+}
+bindBuyButtons();
+// إعادة الربط بعد ملء splide
+document.addEventListener('DOMContentLoaded',bindBuyButtons);
+setTimeout(bindBuyButtons, 1000); // في حال ملأت splide متأخرًا
+
+/* زر الدفع عبر واتساب */
+checkoutBtn.addEventListener('click', ()=>{
+  if(cart.length === 0){
+    iziToast.warning({title:'السلة فارغة', message:'أضف منتجات إلى السلة أولاً'});
+    return;
+  }
+  // تكوين رسالة الطلب
+  const lines = cart.map((it, i) => `${i+1}. ${it.name} — ${it.price.toFixed(2)} ر.س`);
+  const total = cart.reduce((s,i)=>s+i.price,0);
+  const msg = `مرحبًا، أود إتمام طلب من متجر نعومة:%0A%0A${encodeURIComponent(lines.join('%0A'))}%0A%0Aالمجموع: ${total.toFixed(2)} ر.س`;
+  // رقم واتساب افتراضي — يمكنك تغييره هنا
+  const phone = '966500000000';
+  const waLink = `https://wa.me/${phone}?text=${msg}`;
+  window.open(waLink,'_blank');
+});
+
+/* ====== أمثلة تفاعلية صغيرة: عند الضغط على زر إضافة إلى السلة تظهر رسالة وأنيماشن (كان موجوداً سابقاً) ====== */
+document.querySelectorAll('.btn-buy').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    const card = e.target.closest('.card');
+    const title = card ? card.querySelector('.card-title')?.innerText || 'منتج' : 'منتج';
+    // الإشعار مكرر لكن محتفظ به كما في كودك
+    iziToast.success({title:'أضيفت',message:`تمت إضافة ${title} إلى السلة`});
+    try{ gsap.fromTo(card,{scale:1},{scale:0.98,duration:0.08,yoyo:true,repeat:1}); }catch(err){}
+  });
+});
+
+/* ====== تحسين تجربة البحث: اقتراح وهمي بسيط ====== */
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('keydown',(e)=>{
+  if(e.key==='Enter'){
+    iziToast.info({title:'بحث',message:`بحثت عن: ${searchInput.value || '...'}`});
+  }
+});
+
+/* ====== ScrollTrigger مثال إضافي: شريط مبيعات يتوهج أثناء التمرير ====== */
+gsap.to(".shop-now-btn",{scale:1.03,repeat:-1,yoyo:true,duration:2,ease:"sine.inOut"});
+
+/* ====== تجربة بسيطة مع anime.js لظهور سريع */ 
+anime({
+  targets: '.brand',
+  translateY: [-8,0],
+  duration: 900,
+  easing: 'easeOutBounce'
+});
+
+/* ====== بدائل/تحسين: عند تغيير السلايدر نعرض نص صغير مع GSAP */ 
+swiper.on('slideChange',()=>{
+  const el = document.querySelector('.shop-now-btn');
+  gsap.fromTo(el,{y:-8,opacity:0},{y:0,opacity:1,duration:0.5});
+});
+
+/* ====== إغلاق أي نوافذ منبثقة أو تنظيف بسيط ====== */
+window.addEventListener('unload',()=>{
+  // تنظيف خفيف إن لزم
+});
+</script>
 </body>
 </html>
