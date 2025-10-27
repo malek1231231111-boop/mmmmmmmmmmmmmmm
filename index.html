@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>متجر نعومة نعومتك</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Cairo', sans-serif; background: #fdf6f0; color: #3a2612; line-height: 1.6; scroll-behavior: smooth; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #e2c099; box-shadow: 0 5px 20px rgba(58,38,18,0.1); position: sticky; top: 0; z-index: 1000; }
+nav .logo { font-size: 1.8rem; font-weight: 900; color: #7a5624; letter-spacing: 1px; }
+nav ul { list-style: none; display: flex; gap: 1.5rem; }
+nav ul li a { text-decoration: none; color: #3a2612; font-weight: 700; transition: color 0.3s; }
+nav ul li a:hover { color: #bfa06d; }
+.hero { position: relative; width: 100%; height: 70vh; display: flex; align-items: center; justify-content: center; background: url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
+.hero-text { position: relative; color: #fff; text-align: center; z-index: 1; }
+.hero-text h1 { font-size: 3rem; font-weight: 900; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); margin-bottom: 1rem; }
+.hero-text p { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+.shop-btn { display: inline-block; padding: 1rem 2.5rem; font-size: 1.2rem; font-weight: 900; color: #fff; text-decoration: none; border-radius: 20px; background: linear-gradient(135deg, #7a5624, #bfa06d); box-shadow: 0 6px 15px rgba(191,160,109,0.4); transition: all 0.3s ease; }
+.shop-btn:hover { background: linear-gradient(135deg, #bfa06d, #7a5624); transform: scale(1.1) translateY(-2px); box-shadow: 0 10px 25px rgba(191,160,109,0.6); }
+.categories { text-align:center; margin:2rem 0; }
+.category-btn { display: inline-block; margin: 0.5rem; padding: 0.8rem 1.8rem; font-size: 1rem; font-weight: 700; text-decoration: none; color: #fff; background: linear-gradient(135deg, #7a5624, #bfa06d); border-radius: 12px; transition: all 0.3s ease; }
+.category-btn:hover { background: linear-gradient(135deg, #bfa06d, #7a5624); transform: scale(1.05); color: #fff; }
+.section { padding: 4rem 2rem; text-align: center; background: #f9f3ec; }
+.section h2 { font-size: 2.5rem; font-weight: 900; color: #7a5624; margin-bottom: 2rem; }
+.products { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 2.5rem; }
+.product { background: rgba(255,248,236,0.85); backdrop-filter: blur(10px); border-radius: 24px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 12px 36px rgba(58,38,18,0.12); transition: transform 0.3s, box-shadow 0.3s; }
+.product:hover { transform: translateY(-12px) scale(1.05); box-shadow: 0 20px 50px rgba(58,38,18,0.2); }
+.product-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 3px solid rgba(219,178,133,0.6); box-shadow: 0 4px 15px rgba(219,178,133,0.5); transition: transform 0.3s; }
+.product:hover .product-img { transform: rotate(5deg) scale(1.1); }
+.product-title { font-size: 1.5rem; font-weight: 900; color: #7a5624; margin-bottom: 0.8rem; }
+.product-desc { font-size: 1rem; color: #4a3418; margin-bottom: 1.2rem; }
+.product-price { font-size: 1.2rem; font-weight: bold; color: #bfa06d; margin-bottom: 1.5rem; }
+.whatsapp-btn { display: inline-block; padding: 0.8rem 2rem; font-size: 1.1rem; font-weight: 700; color: #fff; text-decoration: none; border-radius: 16px; background: linear-gradient(135deg, #7a5624, #bfa06d); box-shadow: 0 6px 15px rgba(191,160,109,0.4); transition: all 0.3s ease; }
+.whatsapp-btn:hover { background: linear-gradient(135deg, #bfa06d, #7a5624); transform: scale(1.1) translateY(-2px); box-shadow: 0 10px 25px rgba(191,160,109,0.6); color: #fff; }
+footer { background: #f4e3d0; padding: 3rem 2rem; text-align: center; font-weight: 700; color: #7a5624; border-top: 2px solid #bfa06d; }
+footer a { color: #3a2612; text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="logo">نعومة نعومتك</div>
+  <ul>
+    <li><a href="index.html">المنتجات</a></li>
+    <li><a href="reviews.html">تقييمات العملاء</a></li>
+    <li><a href="contact.html">تواصل معنا</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <h1>جمالك يبدأ من هنا</h1>
+    <p>منتجات العناية بالبشرة الأصلية والفاخرة</p>
+    <a class="shop-btn" href="index.html">تسوقي الآن</a>
+  </div>
+</section>
+
+<!-- Categories -->
+<div class="categories">
+  <a class="category-btn" href="creams.html">كريمات</a>
+  <a class="category-btn" href="serums.html">سيرومات</a>
+  <a class="category-btn" href="cleansers.html">منظفات</a>
+  <a class="category-btn" href="sunscreen.html">واقي شمس</a>
+  <a class="category-btn" href="about.html">عن نُعُومة</a>
+  <a class="category-btn" href="consult.html">استشارة بشرتك</a>
+</div>
+
+<!-- Products Section -->
+<section class="section">
+  <h2>جميع المنتجات</h2>
+  <div class="products">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" class="product-img" alt="كريم تفتيح الوجه">
+      <div class="product-title">كريم تفتيح الوجه</div>
+      <div class="product-desc">كريم فعال لتفتيح وتوحيد لون البشرة بسرعة وأمان.</div>
+      <div class="product-price">110 دينار ليبي</div>
+      <a class="whatsapp-btn" href="https://wa.me/218912345678?text=أريد%20طلب%20كريم%20تفتيح%20الوجه" target="_blank">اطلب عبر واتساب</a>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" class="product-img" alt="سيروم فيتامين سي">
+      <div class="product-title">سيروم فيتامين سي</div>
+      <div class="product-desc">تفتيح ونضارة فورية للبشرة. آمن لجميع أنواع البشرة.</div>
+      <div class="product-price">120 دينار ليبي</div>
+      <a class="whatsapp-btn" href="https://wa.me/218912345678?text=أريد%20طلب%20سيروم%20فيتامين%20سي" target="_blank">اطلب عبر واتساب</a>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" class="product-img" alt="منظف البشرة">
+      <div class="product-title">منظف البشرة الفاخر</div>
+      <div class="product-desc">تنظيف عميق مع حماية البشرة من الجفاف.</div>
+      <div class="product-price">85 دينار ليبي</div>
+      <a class="whatsapp-btn" href="https://wa.me/218912345678?text=أريد%20طلب%20منظف%20البشرة" target="_blank">اطلب عبر واتساب</a>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1591828151800-6a96e0aa445d?auto=format&fit=crop&w=400&q=80" class="product-img" alt="واقي الشمس">
+      <div class="product-title">واقي الشمس الفاخر</div>
+      <div class="product-desc">حماية فائقة من أشعة الشمس مع ترطيب خفيف للبشرة.</div>
+      <div class="product-price">70 دينار ليبي</div>
+      <a class="whatsapp-btn" href="https://wa.me/218912345678?text=أريد%20طلب%20واقي%20الشمس" target="_blank">اطلب عبر واتساب</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+جميع الحقوق محفوظة © متجر نعومة نعومتك 2025 <br>
+تواصل معنا عبر <a href="https://wa.me/218912345678">واتساب</a>
+</footer>
+
+</body>
+</html>
